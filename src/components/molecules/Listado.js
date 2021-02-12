@@ -1,9 +1,13 @@
 import * as React from 'react';
 import {FlatList, Text} from 'react-native';
-import ItemListado from './ItemListado';
-import {getBusqueda} from '../Api';
+import ItemListado from '../atoms/ItemListado';
+import {getBusqueda} from '../../utils/Api';
 
-export default function Listado({busqueda, navigation}) {
+export default function Listado({
+  busqueda,
+  navigation,
+  initialNumToRender = 6,
+}) {
   const [data, setData] = React.useState([]);
   const [isLoading, setLoading] = React.useState(true);
 
@@ -23,7 +27,7 @@ export default function Listado({busqueda, navigation}) {
       renderItem={({item}) => (
         <ItemListado item={item} navigation={navigation} />
       )}
-      initialNumToRender={8}
+      initialNumToRender={initialNumToRender}
     />
   );
 }

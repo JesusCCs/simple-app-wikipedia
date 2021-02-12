@@ -1,11 +1,7 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  useWindowDimensions,
-} from 'react-native';
+import {Text, TouchableOpacity, useWindowDimensions} from 'react-native';
 import HTML from 'react-native-render-html';
+import {styles} from '../../styles/style';
 
 export default function ItemListado({item, navigation}) {
   const contentWidth = useWindowDimensions().width;
@@ -24,6 +20,7 @@ export default function ItemListado({item, navigation}) {
       <HTML
         source={{html: snippet}}
         contentWidth={contentWidth}
+        containerStyle={styles.body}
         {...{
           classesStyles: {
             searchmatch: {color: 'green'},
@@ -33,13 +30,3 @@ export default function ItemListado({item, navigation}) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  item: {
-    marginTop: 20,
-  },
-});

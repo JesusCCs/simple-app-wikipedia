@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {StyleSheet, Text, useWindowDimensions, ScrollView} from 'react-native';
+import {Text, useWindowDimensions, ScrollView} from 'react-native';
 import HTML from 'react-native-render-html';
-import {getPage} from '../Api';
+import {getPage} from '../utils/Api';
 
 export default function Articulo({route}) {
   const {pageid} = route.params;
@@ -25,11 +25,3 @@ export default function Articulo({route}) {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

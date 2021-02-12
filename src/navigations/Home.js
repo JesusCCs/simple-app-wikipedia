@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {Button, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
-import Listado from '../components/Listado';
+import Listado from '../components/molecules/Listado';
+import {styles} from '../styles/style';
 
 export default function Home({navigation}) {
   const [busqueda, setBusqueda] = React.useState('');
@@ -21,16 +22,12 @@ export default function Home({navigation}) {
         />
       </View>
       <View style={{flex: 1}}>
-        <Listado busqueda={'teletrabajo'} navigation={navigation} />
+        <Listado
+          busqueda={'teletrabajo'}
+          navigation={navigation}
+          initialNumToRender={3}
+        />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

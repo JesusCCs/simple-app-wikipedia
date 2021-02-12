@@ -8,9 +8,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from './screens/Home';
-import Lista from './screens/Lista';
-import Articulo from './screens/Articulo';
+import Home from './Home';
+import Lista from './Lista';
+import Articulo from './Articulo';
 
 const Stack = createStackNavigator();
 

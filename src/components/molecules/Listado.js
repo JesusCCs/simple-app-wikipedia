@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList} from 'react-native';
 import ItemListado from '../atoms/ItemListado';
 import {getBusqueda} from '../../utils/Api';
+import Loading from '../atoms/Loading';
 
 export default function Listado({
   busqueda,
@@ -19,7 +20,7 @@ export default function Listado({
   }, [busqueda]);
 
   return isLoading ? (
-    <Text>Cargando...</Text>
+    <Loading />
   ) : (
     <FlatList
       data={data}

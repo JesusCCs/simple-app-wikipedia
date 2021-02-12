@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {Text, useWindowDimensions, ScrollView} from 'react-native';
+import {useWindowDimensions, ScrollView, View} from 'react-native';
 import HTML from 'react-native-render-html';
 import {getPage} from '../utils/Api';
+import Loading from '../components/atoms/Loading';
 
 export default function ArticuloScreen({route}) {
   const {pageid} = route.params;
@@ -18,7 +19,7 @@ export default function ArticuloScreen({route}) {
   }, [pageid]);
 
   return isLoading ? (
-    <Text>Cargando...</Text>
+    <Loading />
   ) : (
     <ScrollView>
       <HTML source={{html: data}} contentWidth={contentWidth} />

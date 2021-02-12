@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import Home from '../src/navigations/Home';
+import HomeScreen from '../src/screens/HomeScreen';
 
 describe('Testeo de la navegación', () => {
   // test('clicar en buscar te lleva a la lista', async () => {
@@ -27,9 +27,9 @@ describe('Testeo de la navegación', () => {
   it('navegación a la lista', () => {
     const navigation = jest.fn();
 
-    const {getByA11yLabel} = render(<Home navigation={navigation} />);
+    const {getByA11yLabel} = render(<HomeScreen navigation={navigation} />);
     fireEvent.press(getByA11yLabel('submit'));
 
-    expect(navigation).toHaveBeenCalledWith('Lista');
+    expect(navigation).toHaveBeenCalledWith('ListaScreen');
   });
 });

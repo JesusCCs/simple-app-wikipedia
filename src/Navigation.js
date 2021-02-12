@@ -8,30 +8,30 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from './Home';
-import Lista from './Lista';
-import Articulo from './Articulo';
+import HomeScreen from './screens/HomeScreen';
+import ListaScreen from './screens/ListaScreen';
+import ArticuloScreen from './screens/ArticuloScreen';
 
 const Stack = createStackNavigator();
 
-const App: () => React$Node = () => {
+const Navigation = () => {
   return (
     <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Lista"
-        component={Lista}
+        name="ListaScreen"
+        component={ListaScreen}
         options={({route}) => ({
           title: `Resultados para '${route.params.busqueda}'`,
         })}
       />
       <Stack.Screen
-        name="Articulo"
-        component={Articulo}
+        name="ArticuloScreen"
+        component={ArticuloScreen}
         options={({route}) => ({
           title: route.params.title,
         })}
@@ -40,4 +40,4 @@ const App: () => React$Node = () => {
   );
 };
 
-export default App;
+export default Navigation;

@@ -11,7 +11,7 @@ export default function ItemListado({item, navigation}) {
     <TouchableOpacity
       style={styles.item}
       onPress={() =>
-        navigation.navigate('Articulo', {
+        navigation.navigate('ArticuloScreen', {
           pageid: item.pageid,
           title: item.title,
         })

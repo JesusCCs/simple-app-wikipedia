@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import Listado from '../components/molecules/Listado';
 import {styles} from '../styles/style';
 
-export default function Lista({route, navigation}) {
+export default function ListaScreen({route, navigation}) {
   const {busqueda} = route.params;
 
   return (

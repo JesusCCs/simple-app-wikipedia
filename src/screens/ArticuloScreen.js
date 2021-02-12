@@ -3,7 +3,7 @@ import {Text, useWindowDimensions, ScrollView} from 'react-native';
 import HTML from 'react-native-render-html';
 import {getPage} from '../utils/Api';
 
-export default function Articulo({route}) {
+export default function ArticuloScreen({route}) {
   const {pageid} = route.params;
   const contentWidth = useWindowDimensions().width;
 

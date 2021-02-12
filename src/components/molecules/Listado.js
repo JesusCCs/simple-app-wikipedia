@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, RefreshControl} from 'react-native';
+import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
 import ItemListado from '../atoms/ItemListado';
 import {getBusqueda} from '../../utils/Api';
 import Loading from '../atoms/Loading';
@@ -19,7 +19,7 @@ export default function Listado({busqueda, navigation}) {
     });
   }, [busqueda]);
 
-  const onEndReached = async () => {
+  const onEndReached = () => {
     if (refreshing) {
       return;
     }
@@ -32,7 +32,7 @@ export default function Listado({busqueda, navigation}) {
     });
   };
 
-  const onRefresh = async () => {
+  const onRefresh = () => {
     setRefreshIndicator(true);
     setOffSet(10);
 
@@ -40,6 +40,16 @@ export default function Listado({busqueda, navigation}) {
       setData(lista);
       setRefreshIndicator(false);
     });
+  };
+
+  const getFooter = () => {
+    return refreshing ? (
+      <ActivityIndicator
+        style={{marginBottom: 20}}
+        size={'large'}
+        color="#00ff00"
+      />
+    ) : null;
   };
 
   return isLoading ? (
@@ -58,6 +68,7 @@ export default function Listado({busqueda, navigation}) {
       renderItem={({item}) => (
         <ItemListado item={item} navigation={navigation} />
       )}
+      ListFooterComponent={getFooter}
     />
   );
 }

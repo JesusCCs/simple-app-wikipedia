@@ -43,11 +43,7 @@ export default function HomeScreen({navigation}) {
 
       <View style={styles.separator} />
 
-      <Listado
-        busqueda={'teletrabajo'}
-        navigation={navigation}
-        initialNumToRender={3}
-      />
+      <Listado busqueda={'teletrabajo'} navigation={navigation} />
 
       <View style={styles.separator} />
     </View>

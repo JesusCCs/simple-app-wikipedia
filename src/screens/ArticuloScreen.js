@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {useWindowDimensions, ScrollView, View} from 'react-native';
+import {useWindowDimensions, ScrollView, Alert} from 'react-native';
 import HTML from 'react-native-render-html';
 import {getPage} from '../utils/Api';
 import Loading from '../components/atoms/Loading';
+import {styles} from '../styles/style';
 
 export default function ArticuloScreen({route}) {
   const {pageid} = route.params;
@@ -18,11 +19,24 @@ export default function ArticuloScreen({route}) {
     });
   }, [pageid]);
 
+  const advertencia = () => {
+    Alert.alert(
+      'Atención',
+      'Esto es solo una vista del documento, los links no son funcionales',
+      [{text: 'De acuerdo'}],
+    );
+  };
+
   return isLoading ? (
     <Loading />
   ) : (
-    <ScrollView>
-      <HTML source={{html: data}} contentWidth={contentWidth} />
+    <ScrollView style={{padding: 10}}>
+      <HTML
+        source={{html: data}}
+        contentWidth={contentWidth}
+        onLinkPress={advertencia}
+        baseFontStyle={{fontSize: 16}}
+      />
     </ScrollView>
   );
 }

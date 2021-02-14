@@ -3,7 +3,6 @@ import {useWindowDimensions, ScrollView, Alert} from 'react-native';
 import HTML from 'react-native-render-html';
 import {getPage} from '../utils/Api';
 import Loading from '../components/atoms/Loading';
-import {styles} from '../styles/style';
 
 export default function ArticuloScreen({route}) {
   const {pageid} = route.params;

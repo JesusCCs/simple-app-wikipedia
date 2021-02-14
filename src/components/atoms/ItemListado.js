@@ -3,7 +3,7 @@ import {Text, TouchableOpacity, useWindowDimensions} from 'react-native';
 import HTML from 'react-native-render-html';
 import {styles} from '../../styles/style';
 
-export default function ItemListado({item, navigation}) {
+function ItemListado({item, navigation}) {
   const contentWidth = useWindowDimensions().width;
   const snippet = `...${item.snippet}...`;
 
@@ -30,3 +30,5 @@ export default function ItemListado({item, navigation}) {
     </TouchableOpacity>
   );
 }
+
+export default React.memo(ItemListado);
